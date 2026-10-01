@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Naomi Cafe &amp; Restaurant | Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cairo:wght@400;600&family=Cinzel+Decorative:wght@700&family=Jost:wght@400;500;600&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #120f0c;
+  --ink-2: #1b1713;
+  --line: #3a3126;
+  --gold: #e9b949;
+  --gold-hi: #ffe39a;
+  --gold-lo: #b9822a;
+  --text: #efe6d4;
+  --muted: #a89980;
+  --display: "Cinzel Decorative", "Times New Roman", serif;
+  --body: "Jost", "Helvetica Neue", Arial, sans-serif;
+  --arabic: "Cairo", "Segoe UI", Tahoma, sans-serif;
+  --script: "Yellowtail", "Brush Script MT", cursive;
+  --calli: "Aref Ruqaa", "Cairo", serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*, *::before, *::after { box-sizing: inherit; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 120px); height: 100%; }
+body {
+  margin: 0; min-height: 100%;
+  background: var(--ink);
+  background-image:
+    radial-gradient(ellipse at 50% -10%, #2a2118 0%, transparent 60%),
+    repeating-radial-gradient(circle at 50% 100%, transparent 0 22px, rgba(233,185,73,.035) 22px 23px);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 16px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+ 
+/* Hero */
+.hero { text-align: center; padding: 56px 20px 36px; }
+.hero .mark { width: 54px; height: 54px; margin: 0 auto 6px; color: var(--gold); opacity: .9; }
+.hero .ar {
+  font-family: var(--calli); font-size: clamp(64px, 18vw, 112px); line-height: 1.05; margin: 0;
+  background: linear-gradient(180deg, var(--gold-hi), var(--gold) 55%, var(--gold-lo));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero .en {
+  font-family: var(--script); font-size: clamp(44px, 12vw, 72px); line-height: 1; margin: -6px 0 0;
+  background: linear-gradient(180deg, var(--gold-hi), var(--gold) 60%, var(--gold-lo));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero .sub { letter-spacing: .38em; font-size: 12.5px; color: var(--muted); margin: 14px 0 0; }
+.hero .hint { margin: 26px auto 0; max-width: 34ch; color: var(--muted); font-size: 15px; }
+ 
+/* Sticky nav */
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: rgba(18,15,12,.94); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  padding-top: 10px;
+}
+.bar-inner { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+.search { position: relative; }
+.search input {
+  width: 100%; font: inherit; color: var(--text);
+  background: var(--ink-2); border: 1px solid var(--line); border-radius: 999px;
+  padding: 11px 18px 11px 44px; outline: none;
+}
+.search input::placeholder { color: var(--muted); }
+.search input:focus-visible { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(233,185,73,.25); }
+.search svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--muted); }
+.groups, .chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.groups::-webkit-scrollbar, .chips::-webkit-scrollbar { display: none; }
+.groups { padding: 10px 0 6px; }
+.chips { padding: 4px 0 10px; }
+.tab, .chip {
+  flex: 0 0 auto; font: inherit; cursor: pointer; white-space: nowrap;
+  background: transparent; color: var(--muted); border: 0;
+}
+.tab { font-family: var(--display); font-size: 14px; padding: 6px 12px; border-bottom: 2px solid transparent; }
+.tab[aria-current="true"] { color: var(--gold); border-bottom-color: var(--gold); }
+.chip { font-size: 14px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; }
+.chip[aria-current="true"] { background: var(--gold); border-color: var(--gold); color: #1a1208; font-weight: 600; }
+.tab:focus-visible, .chip:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 2px; }
+.tab:hover, .chip:hover { color: var(--gold-hi); }
+.chip[aria-current="true"]:hover { color: #1a1208; }
+ 
+/* Sections */
+main { max-width: 880px; margin: 0 auto; padding: 8px 16px 40px; }
+.group-title { text-align: center; margin: 56px 0 4px; font-family: var(--display); font-size: 13px; letter-spacing: .3em; color: var(--muted); }
+section { padding: 36px 0 8px; }
+.sec-head { text-align: center; margin-bottom: 18px; }
+.orn { width: 70px; height: 14px; color: var(--gold); display: block; margin: 0 auto 6px; }
+.sec-head h2 { font-family: var(--display); font-weight: 700; font-size: clamp(28px, 6vw, 38px); line-height: 1.15; margin: 0; color: var(--gold); }
+.sec-head .ar-title { font-family: var(--calli); font-size: 24px; color: var(--gold-lo); margin-top: 2px; }
+.sec-head .note { color: var(--muted); font-size: 14px; margin-top: 2px; }
+ 
+.items { list-style: none; margin: 0; padding: 0; }
+.item {
+  display: grid; grid-template-columns: 1fr auto; column-gap: 16px; row-gap: 2px;
+  padding: 13px 0; border-top: 1px solid var(--line);
+}
+.item:first-child { border-top: 0; }
+.en-name { font-weight: 600; color: var(--gold); font-size: 17px; }
+.en-desc { color: var(--text); font-size: 14.5px; opacity: .86; white-space: pre-line; max-width: 52ch; }
+.price { grid-column: 2; grid-row: 1; text-align: right; font-weight: 600; font-size: 17px; font-variant-numeric: tabular-nums; color: var(--text); white-space: nowrap; }
+.price small { font-weight: 400; color: var(--muted); font-size: 12px; margin-left: 3px; }
+.price .two { display: inline-flex; gap: 14px; }
+.price .two span { display: inline-flex; flex-direction: column; align-items: flex-end; line-height: 1.15; }
+.price .two em { font-style: normal; font-size: 11px; color: var(--muted); font-weight: 400; }
+.ar-block { grid-column: 1 / -1; direction: rtl; text-align: right; font-family: var(--arabic); color: var(--text); margin-top: 2px; }
+.ar-name { font-weight: 600; font-size: 16px; }
+.ar-desc { font-size: 14px; opacity: .8; white-space: pre-line; }
+ 
+@media (min-width: 720px) {
+  .item { grid-template-columns: minmax(0,1.3fr) 130px minmax(0,1.1fr); column-gap: 20px; align-items: start; }
+  .price { grid-column: 2; grid-row: 1; text-align: center; }
+  .price .two { justify-content: center; }
+  .ar-block { grid-column: 3; grid-row: 1; margin-top: 0; }
+  .item.noar .price { grid-column: 3; text-align: right; }
+}
+ 
+.empty { text-align: center; color: var(--muted); padding: 64px 0; display: none; }
+footer { text-align: center; padding: 20px 20px 60px; color: var(--muted); }
+footer .best { font-family: var(--display); color: var(--gold); font-size: 15px; }
+footer p { margin: 8px 0 0; font-size: 13px; }
+.top {
+  position: fixed; right: 16px; bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--gold); background: var(--ink);
+  color: var(--gold); cursor: pointer; display: none; place-items: center; z-index: 30;
+}
+.top.show { display: grid; }
+.top:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 2px; }
+.top svg { width: 18px; height: 18px; }
+</style>
+</head>
+<body>
+ 
+<header class="hero">
+  <svg class="mark" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+    <circle cx="32" cy="32" r="28"/><circle cx="32" cy="32" r="6"/>
+    <g id="pet"><path d="M32 26 C28 18 28 12 32 6 C36 12 36 18 32 26Z"/></g>
+    <use href="#pet" transform="rotate(45 32 32)"/><use href="#pet" transform="rotate(90 32 32)"/><use href="#pet" transform="rotate(135 32 32)"/>
+    <use href="#pet" transform="rotate(180 32 32)"/><use href="#pet" transform="rotate(225 32 32)"/><use href="#pet" transform="rotate(270 32 32)"/><use href="#pet" transform="rotate(315 32 32)"/>
+  </svg>
+  <h1 class="ar" lang="ar" dir="rtl">نعومي</h1>
+  <p class="en" aria-hidden="true">Naomi</p>
+  <p class="sub">cafe &amp; restaurant</p>
+  <p class="hint">Browse by section or search by dish name, in English or Arabic.</p>
+</header>
+ 
+<nav class="bar" aria-label="Menu navigation">
+  <div class="bar-inner">
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search the menu" aria-label="Search the menu" autocomplete="off">
+    </label>
+    <div class="groups" id="groups" role="tablist"></div>
+    <div class="chips" id="chips"></div>
+  </div>
+</nav>
+ 
+<main id="menu"></main>
+<p class="empty" id="empty">No dishes match your search. Try another name.</p>
+ 
+<footer>
+  <div class="best">Best Of The Best</div>
+  <p>All prices are in Egyptian pounds (LE).</p>
+</footer>
+ 
+<button class="top" id="top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
+</button>
+ 
+<script>
+const G = { sushi: "Sushi", kitchen: "Kitchen", drinks: "Drinks & Desserts" };
+ 
+// item: [english, arabic, price, englishDescription, arabicDescription]
+const S = [
+{ id:"nigiri", g:"sushi", en:"Nigiri", ar:"نيجيري", items:[
+  ["Salmon","سلمون",30],["Shrimp","جمبري",30],["Crab","كابوريا",30],["Tuna","تونة",30]]},
+{ id:"fried-nigiri", g:"sushi", en:"Fried Nigiri", ar:"نيجيري مقلي", items:[
+  ["Fried Salmon","سلمون مقلي",25],["Fried Shrimp","جمبري مقلي",25],
+  ["Crispy Salmon Rice","كرسبي رايز سلمون",30],["Crispy Tuna Rice","كرسبي رايز تونه",30],["Crispy Shrimp Rice","كرسبي رايز شرمب",30]]},
+{ id:"sashimi", g:"sushi", en:"Sashimi", ar:"ساشيمي", note:"5 pieces", items:[
+  ["Salmon","سلمون",175],["Tuna","تونه",200],["Shrimp","جمبري",175],["Naomi Sashimi","نعومي ساشيمي",290]]},
+{ id:"hoso-maki", g:"sushi", en:"Hoso Maki", ar:"هوسو ماكي", note:"6 pieces", items:[
+  ["Avocado Maki","افوكادو ماكي",55],["Cucumber Maki","خيار ماكي",55],["Salmon Maki","سلمون ماكي",85],["Tuna Maki","تونه ماكي",85],["Shrimp Maki","جمبري ماكي",85]]},
+{ id:"dynamite", g:"sushi", en:"Dynamite Roll", ar:"ديناميت رول", note:"5 pieces", items:[
+  ["Dynamite Salmon","ديناميت سلمون",140],["Dynamite Shrimp","ديناميت جمبري تمبورا",135],["Dynamite Tuna","ديناميت تونه",145]]},
+{ id:"classic-roll", g:"sushi", en:"Classic Roll", ar:"كلاسيك رول", note:"Price for 4 pieces / 8 pieces", labels:["4 pcs","8 pcs"], items:[
+  ["Philadelphia","فلادلفيا",[120,200],"Salmon - Kiri Cheese - Cucumber - Avocado\nSmoked Salmon - Teriyaki Sauce","سلمون - جبنه كيري - خيار - افوكادو\nسموك سالمون - ترياكي صوص"],
+  ["Crispy Roll","كرسبي رول",[110,185],"Tempura Shrimp - Avocado\nCrispy - Teriyaki - Cucumber","جمبري تمبورا - افوكادو\nكرسبي - ترياكي - خيار"],
+  ["Jalapeno Roll","هالبينو رول",[110,200],"Smoked Salmon - Shrimp - Cucumber\nAvocado - Jalapeno Sauce","سموك سالمون - جمبري - خيار\nافوكادو - هالبينو صوص"],
+  ["Volcano Sauce","فولكانو صوص",[110,200],"Salmon - Arugula - Kiri Cheese - Avocado\nCucumber - Caviar - Spicy Mayo","سلمون - جرجير - جبنه كيري - افوكادو\nخيار - كافيار - سبايسي مايو"],
+  ["Salmon Roll","سلمون رول",[105,185],"Salmon - Kiri Cheese\nSesame Mix - Teriyaki Sauce","سلمون - جبنه كيري\nسمسم ميكس - ترياكي صوص"],
+  ["Shrimp Roll","جمبري رول",[105,185],"Tempura Shrimp - Kiri Cheese\nSesame Mix - Teriyaki Sauce","جمبري تمبورا - جبنه كيري\nسمسم ميكس - ترياكي صوص"],
+  ["Torched Roll","تورشيد رول",[105,185],"Tempura Shrimp - Cucumber - Avocado\nKiri Cheese - Smoked Salmon - Cheddar Cheese","جمبري تمبورا - خيار - افوكادو\nجبنه كيري - سموك سالمون - جبنه شيدر"],
+  ["Spicy Salmon","سبايسي سلمون",[100,185],"Salmon - Avocado\nSpicy Sauce - Black Sesame","سالمون - افوكادو\nسبايسي صوص - سمسم اسود"],
+  ["Spicy Tuna","سبايسي تونه",[100,185],"Tuna - Avocado\nSpicy Sauce - Black Sesame","تونه - افوكادو\nسبايسي صوص - سمسم اسود"],
+  ["Naomi Roll","نعومي رول",[105,160],"Salmon - Tuna - Avocado\nCaviar - Naomi Sauce","سلمون - تونه - افوكادو\nكافيار - صوص نعومي"],
+  ["Salmon Rocket","سلمون روكيت",[115,200],"Smoked Salmon - Arugula\nKiri Cheese - Teriyaki Sauce","سموك سلمون - جرجير\nجبنه كيري - صوص ترياكي"],
+  ["Rocket Shrimp","جمبري روكيت",[115,200],"Smoked Salmon - Arugula\nKiri Cheese - Teriyaki Sauce","سموك سلمون - جرجير\nجبنه كيري - صوص تيرياكي"],
+  ["Aura California","اورا كاليفورنيا",[100,185],"Crab - Cucumber\nAvocado - Sesame Mix","كابوريا - خيار\nافوكادو - سمسم ميكس"]]},
+{ id:"hot-fried", g:"sushi", en:"Hot Fried Roll", ar:"هوت فرايد رول", note:"6 pieces", items:[
+  ["Lemon Roll","ليمون رول",180,"Salmon - Shrimp Tempura\nKiri Cheese - Spicy Mayo","سلمون - جمبري تمبورا\nجبنه كيري - سبايسي مايو"],
+  ["Spider Roll","اسبايدر رول",155,"Salmon - Shrimp\nTeriyaki Sauce","سلمون - جمبري\nصوص ترياكي"],
+  ["Volcano Roll","فولكانو رول",175,"Smoky Salmon - Shrimp\nCheddar Cheese - Naomi Sauce","سموك سلمون - جمبري\nجبنه شيدر - صوص نعومي"],
+  ["Sunrise","صن رايز",170,"Salmon - Shrimp Tempura\nKiri Cheese - Sriracha","سلمون - جمبري تمبورا\nجبنه كيري - سيراتشا"]]},
+{ id:"combo", g:"sushi", en:"Combination Platter", ar:"كومبو", items:[
+  ["Combo 1 (12 pieces)","كومبو ١ (١٢)",290,"Nigiri_4 - Philadelphia_4 - Crispy_4","نيجيري_٤ - فلادلفيا_٤ - كرسبي_٤"],
+  ["Combo 2 (24 pieces)","كومبو ٢ (٢٤)",380,"Nigiri_4 - Crispy_4 - Lemon_6\nPhiladelphia_4 - Hoso Maki_6","نيجيري_٤ - كرسبي_٤ - ليمون_٦\nفلادلفيا_٤ - هوسو ماكي_٦"],
+  ["Combo 3 (30 pieces)","كومبو ٣ (٣٠)",610,"Nigiri_4 - Lemon_6 - Volcano Fried_6\nPhiladelphia_4 - Crispy_4 - Hoso_6","نيجيري_٤ - ليمون_٦ - فولكانو فرايد_٦\nفلادلفيا_٤ - كرسبي_٤ - هوسو_٦"],
+  ["Combo 4 (50 pieces)","كومبو ٤ (٥٠)",1150,"Nigiri_5 - Sashimi_5 - Lemon_6\nPhiladelphia_8 - Crispy_8 - Hoso_6\nAura California_8 - Dynamite_5","نيجيري_٥ - ساشيمي_٥ - ليمون_٦\nفلادلفيا_٨ - كرسبي_٨ - هوسو_٦\nاورا كاليفورنيا_٨ - ديناميت_٥"]]},
+ 
+{ id:"breakfast", g:"kitchen", en:"Breakfast", ar:"الإفطار", items:[
+  ["American Breakfast","افطار امريكان",254.99,"Cheese Omelette - Sautéed Mushrooms\nMini Sausages","اومليت تشيز - مشروم سوتيه\nميني سوسيس"],
+  ["Oriental Breakfast","افطار شرقي",179.99,"Fava Beans - Falafel\nFrench Fries - Mixed Greens","فول - طعميه\nفرنش فرايز - مكس جرين"],
+  ["Turkish Cheese Toast","توست تشيز تركي",159.99,"Toast with Mayonnaise\nSmoked Turkey - Cheese","توست - مايونيز\nسموك تركي - تشيز"],
+  ["Cheese Omelette","اومليت تشيز",109.99],["Spanish Omelette","اومليت سبانش",119.99],["Pastrami Omelette","اومليت بسطرمه",129.99],
+  ["Tuna Sandwich","تونه سندوتش",84.99],["Cheese with Tomato","جبنه بالطماطم",149.99],["Mixed Cheese","مكس تشيز",139.99],
+  ["Smoked Salmon Sandwich","سموك سالمون سندوتش",189.99],["Cheese Croissant","كروسان تشيز",149.99],
+  ["Turkey Croissant","كروسان تركي",159.99],["Nutella Croissant","كروسان نوتيلا",169.99]]},
+{ id:"soup", g:"kitchen", en:"Soup", ar:"الشوربة", items:[
+  ["Creamy Mushroom Soup","شوربه مشروم كريمي",114.99],["Shrimp Soup","شوربه جمبري",169.99],
+  ["Creamy Chicken Soup","شوربه دجاج كريمي",109.99],["Noodle Soup with Chicken","شوربه النودلز مع الدجاج",144.99]]},
+{ id:"appetizers", g:"kitchen", en:"Appetizers", ar:"المقبلات", items:[
+  ["Spicy Shrimp","جمبري حار",239.99,"Fried shrimp with Dynamite sauce","جمبري مقلي مع صوص ديناميت الحار"],
+  ["Classic Nachos","ناتشوز كلاسيك",149.99,"Fried nachos with cheese and jalapeño sauce","خبز الناتشوز المقلي مع صوص الجبنه والهالبينو"],
+  ["Crispy Chicken","كرسبي تشيكن",174.99,"Crispy chicken strips with cocktail sauce","قطع الدجاج المقرمشه مع صوص الكوكتيل"],
+  ["Texas Fries","تكساس فرايز",149.99,"Fries with delicious cheese sauce and beef","فرايز مع صوص الجبنه الشهيه واللحم"],
+  ["Chicken Quesadilla","كاساديا تشيكن",274.99,"Tortilla wraps with chicken and cheese, with sour cream","خبز التورتيلا مع الدجاج والجبن مع ساور كريم"],
+  ["Shrimp Gratin","جمبري جريتان",239.99,"Toasted bread with shrimp and mozzarella","خبز محمص مع الجمبري والموتزاريلا"],
+  ["Swiss Roll","ساوس رول",159.99,"Chicken-stuffed tortilla, bacon and cheese","شرائح التورتيلا المحشو بالدجاج والبيكون والجبن"],
+  ["Mozzarella Sticks","موتزاريلا ستيك",129.99,"Fried mozzarella sticks with honey mustard","اصابع الموتزاريلا المقليه مع هاني مستارد"]]},
+{ id:"salad", g:"kitchen", en:"Salad", ar:"السلطات", items:[
+  ["Burrata Salad","بوراتا سلاد",284.99,"Mixed green salad with baby arugula, burrata cheese, walnuts and balsamic","مكس جرين سلاد مع بيبي روكا وجبنه البوراتا وعين الجمل والبلسمك"],
+  ["Caesar Salad","سيزر سلاد",189.99,"Iceberg lettuce with Caesar dressing","خس الكابوتشا مع صوص السيزر"],
+  ["Rocca Salad","روكا سلاد",164.99,"Rocket salad with fresh mushrooms, tomatoes and balsamic dressing","سلطة الجرجير مع المشروم فريش طماطم - بلسمك دريسنج"],
+  ["Green Waldorf Salad","جرين والدورف سلاد",189.99,"A mixture of lettuce and green apple","خليط من الخس والتفاح الاخضر"],
+  ["Chicken Ranch Salad","تشيكن رانش سلاد",274.99,"A mix of leafy greens, fried chicken, corn and ranch dressing","خليط من الورقيات والدجاج المقلي والكورن وصوص الرانش"]]},
+{ id:"pasta", g:"kitchen", en:"Pasta", ar:"باستا", items:[
+  ["Buffalo Pesto Pasta","باستا بيستو بافلو",189.99,"Pasta with basil and buffalo sauce","باستا مع صوص الريحان والبافلو"],
+  ["Pasta Shrimp","باستا شرمب",299.99,"Shrimp pasta with rosé sauce","باستا الجمبري مع صوص الروزيه"],
+  ["Spinachchi Chicken","سبناتشي تشيكن",174.99,"Fettuccine with fresh spinach, beef bacon and mushrooms","فوتشيني مع سبانخ فريش بيف بيكون والمشروم"],
+  ["Alfredo Chicken","الفريدو تشيكن",189.99,"Pasta with chicken and creamy mushrooms","باستا مع الدجاج والمشروم الكريمي"],
+  ["Mushroom Risotto","روزيتو مشروم",214.99],["Creamy Risotto","روزيتو كريمي",219.99],
+  ["Naomi Pasta","نعومي باستا",194.99,"Pasta with beef and basil, brown sauce and walnuts","باستا مع اللحم - ريحان بروان صوص وعين الجمل"]]},
+{ id:"pizza", g:"kitchen", en:"Pizza", ar:"بيتزا", items:[
+  ["Margherita Pizza","ماركريتا بيتزا",199.99,"Pizza sauce with mozzarella cheese","صوص بيتزا مع الجبنة الموزاريلا"],
+  ["Pepperoni Pizza","بيبروني بيتزا",318.99,"Pizza sauce with mozzarella cheese, pepperoni slices with bell peppers and olives","صوص بيتزا مع الجبنة الموزاريلا شرائح البيبروني مع فلفل الوان وزيتون"],
+  ["Tuna Pizza","تونه بيتزا",384.99,"Pizza sauce with mozzarella cheese, tuna, green peppers, olives and onion slices","صوص بيتزا مع الجبنة الموزاريلا تونة مع فلفل اخضر مع زيتون وشرائح البصل"],
+  ["BBQ Pizza","باربيكيو بيتزا",264.99,"Pizza sauce with mozzarella cheese, grilled chicken breast slices with bell peppers, olives and BBQ sauce","صوص بيتزا مع الجبنة الموزاريلا شرائح صدور دجاج جريل مع فلفل الوان والزيتون وصوص الباربيكيو"],
+  ["Chicken Ranch Pizza","تشيكن رانش بيتزا",264.99,"Crispy chicken pieces with bell peppers, olives and ranch sauce","قطع الدجاج الكرسبي مع فلفل الوان والزيتون وصوص الرانش"],
+  ["Naomi Pizza","نعومي بيتزا",399.99,"Shrimp with anchovy fillets, olives, onions and bell peppers","جمبري مع شرائح الانشوجة مع الزيتون والبصل والفلفل الوان"]]},
+{ id:"chicken", g:"kitchen", en:"Main Course: Chicken", ar:"الأطباق الرئيسية: دجاج", items:[
+  ["Chicken Tuscan","تشيكن توسكان",274.99,"Chicken breasts with creamy sauce, spinach, mushrooms and chicken","صدور الدجاج مع صوص كريمي والسبانخ والمشروم والدجاج"],
+  ["Chicken Roll","تشيكن رول",254.99,"Chicken breasts stuffed with cheese, bacon and turkey","صدور الدجاج محشوه جبن وبيكون - تركي"],
+  ["Chicken Grill","تشيكن جريلد",294.99,"Chicken breasts served with sauce (mushroom, pepper or cheese)","صدور الدجاج تقدم مع صوص (مشروم - بيبر - تشيز)"],
+  ["Sweet & Sour Chicken","تشيكن سويت اند ساور",349.99,"Fried chicken with sweet chili sauce","الدجاج المقلي مع صوص سويت شيلي"],
+  ["Chicken Naomi","تشيكن نعومي",319.99,"Chicken breasts with almonds, white mushroom sauce","صدور الدجاج مع لوز وايت مشروم صوص"]]},
+{ id:"beef", g:"kitchen", en:"Main Course: Beef", ar:"الأطباق الرئيسية: لحم", items:[
+  ["T-Bone Steak","تي بون ستيك",1034.99,"T-bone steak with our signature marinade","شريحه تي بون بالتتبيله المميزه"],
+  ["Ribeye Steak","ريب اي ستيك",776.99,"Ribeye steak with your choice of sauce (mushroom or pepper)","شريحه ريب اي مع اختيارك من الصوص (مشروم - بيبر)"],
+  ["Rocca Steak","روكا ستيك",489.99,"Steak slices with arugula and croutons","قطع الاستيك مع الروكا والخبز المحمص"],
+  ["Cheese Steak","تشيز ستيك",489.99,"Steak slices with delicious cheese sauce","قطع الاستيك مع صوص الجبنه اللذيذ"],
+  ["Beef Sweet Chilli","بيف سويت شيلي",499.99,"Steak slices with sweet chili","قطع الاستيك مع سويت شيلي"],
+  ["Beef Steak","بيف ستيك",449.99,"Grilled steak with your choice of sauce (mushroom or pepper)","جريلد ستيك مع اختيارك من الصوص (مشروم - بيبر)"],
+  ["Beef Sierra Leone","بيف سيراليون",469.99,"Grilled steak with mushroom and caramelized onions","جريلد ستيك مع المشروم والبصل المكرمل"]]},
+{ id:"seafood", g:"kitchen", en:"Main Course: Seafood", ar:"الأطباق الرئيسية: بحري", items:[
+  ["Salmon Steak","سالمون ستيك",599.99,"Salmon fillet with lemon sauce","فيليه سالمون مع صوص الليمون"],
+  ["Butterfly Shrimp","شرمب بترفلاي",539.99,"Grilled shrimp with butter and lemon","جمبري مشوي مع الزبده والليمون"],
+  ["Naomi Platter","نعومي بلاتر",529.99,"Salmon steak with shrimp and calamari","سلمون ستيك مع الجمبري والكاليماري"],
+  ["Sweet & Sour Shrimp","شرمب سويت اند ساور",529.99,"Grilled shrimp with sweet chili sauce","الجمبري المشوي مع صوص السويت شيلي"]]},
+{ id:"bbq", g:"kitchen", en:"Barbecued", ar:"المشويات", items:[
+  ["Classic Mixed Grill","ميكس جريل كلاسيك",699.99,"Kofta - Kebab - Shish Tawook\nServed with rice and French fries","كفتة - كباب - شيش طاووق\nيقدم مع الأرز - بطاطس محمره"],
+  ["Naomi Mixed Grill","ميكس جريل نعومي",999.99,"Kofta - Kebab - Shish Tawook\nSausage - Hawawshi\nServed with rice and French fries","كفتة - كباب - شيش طاووق\nسجق - حواوشي\nيقدم مع الأرز - بطاطس محمره"],
+  ["Boneless Chicken","دجاج مسحب",299.99],["Grilled Kofta","كفتة مشوية",299.99],["Shish Tawook","شيش طاووق",294.99],
+  ["Veal Kebab","كباب بتلو",529.99],["Grilled Sausage","سجق مشوي",254.99],["Hawawshi","حواوشي",199.99]]},
+{ id:"sandwich", g:"kitchen", en:"Sandwiches", ar:"سندوتشات", items:[
+  ["Chicken Ranch Sandwich","تشيكن رانش سندوتش",189.99,"Crispy chicken with ranch sauce","كرسبي الدجاج مع صوص الرانش"],
+  ["Cheese Burger","برجر تشيز",179.99,"Burger patty with delicious cheese sauce","شريحة البرجر مع صوص الجبنه الشهيه"],
+  ["Shrimp Sandwich","شرمب سندوتش",309.99,"Fried shrimp pieces with arugula and mustard sauce","قطعة الجمبري المقلي مع الروكا وصوص المستردة"],
+  ["Beef Mushroom Sandwich","بيف مشروم سندوتش",214.99,"Steak pieces with mushroom, brown sauce and cheese","قطع الاستيك مع المشروم والبيكون بروان صوص والجبن"],
+  ["Naomi Beef Burger","نعومي بيف برجر",274.99,"Burger with bacon, jalapeños and caramelized onions","قطعة البرجر مع البيكون والهالبينو والبصل المكرمل"]]},
+ 
+{ id:"dessert", g:"drinks", en:"Dessert", ar:"الحلويات", items:[
+  ["Cheesecake",0,149.99],["Molten Cake",0,159.99],["Brownies",0,129.99],["Fudge Cake",0,169.99],["Tiramisu",0,174.99],
+  ["Fruit Salad",0,119.99],["Cheese Madness",0,149.99],["Oreo Madness",0,154.99],["HoHos Madness",0,154.99],
+  ["Kit Kat Madness",0,154.99],["Nutella Crepe",0,149.99],["Naomi Crepe",0,139.99]]},
+{ id:"hot", g:"drinks", en:"Hot Drinks", ar:"مشروبات ساخنة", items:[
+  ["Espresso",0,84.99],["Espresso Double",0,89.99],["Macchiato",0,99.99],["Macchiato Double",0,109.99],["Cappuccino",0,109.99],
+  ["Flat White",0,134.99],["Latte",0,109.99],["Spanish Latte",0,119.99],["Mocha",0,109.99],["American Coffee",0,104.99],
+  ["Nescafe",0,74.99],["Hot Chocolate",0,104.99],["Hot Chocolate Marshmallow",0,129.99]]},
+{ id:"juices", g:"drinks", en:"Fresh Juices", ar:"عصائر فريش", items:[
+  ["Mango",0,109.99],["Strawberry",0,104.99],["Guava",0,104.99],["Orange",0,109.99],["Lemon",0,74.99],
+  ["Lemon Mint",0,79.99],["Kiwi",0,109.99],["Avocado",0,114.99],["Guava Mint",0,109.99]]},
+{ id:"smoothies", g:"drinks", en:"Smoothies", ar:"سموذي", items:[
+  ["Mango",0,129.99],["Strawberry",0,139.99],["Blueberry",0,139.99],["Mixed Berries",0,139.99],
+  ["Pineapple",0,139.99],["Green Apple",0,139.99],["Peach",0,139.99],["Watermelon",0,129.99]]},
+{ id:"cocktails", g:"drinks", en:"Cocktails", ar:"كوكتيل", items:[
+  ["Tsunami Colada",0,139.99],["Colcuta",0,139.99],["Very Passion",0,139.99],["Almonda Avocado",0,149.99],["Relaxed",0,149.99],
+  ["Slush Cocktail",0,149.99],["Tango Cocktail",0,149.99],["Pina Colada",0,144.99],["Naomi Cocktail",0,159.99]]},
+{ id:"cocktail-soda", g:"drinks", en:"Cocktail Soda", ar:"كوكتيل صودا", items:[
+  ["Green Apple Lemon",0,164.99],["Pink Lemon",0,169.99],["Sunshine",0,169.99],["Mojito",0,159.99],["Hammerhead Red Bull",0,179.99],
+  ["Blue Peach",0,134.99],["Mojito Red Bull",0,169.99],["Green Line",0,129.99],["Mojito Naomi",0,169.99]]},
+{ id:"milkshakes", g:"drinks", en:"Milkshakes", ar:"ميلك شيك", items:[
+  ["Vanilla",0,144.99],["Chocolate",0,144.99],["Caramel",0,144.99],["Mango",0,144.99],["Strawberry",0,144.99],["Espresso",0,144.99],
+  ["Passion Fruit",0,144.99],["Blueberry",0,144.99],["Lotus",0,159.99],["Nutella",0,174.99],["Pistachio",0,144.99],["Oreo",0,144.99],
+  ["Popcorn",0,159.99],["Kit Kat",0,164.99],["Snickers",0,164.99],["HoHos",0,154.99]]},
+{ id:"frappe", g:"drinks", en:"Frappe", ar:"فرابيه", items:[
+  ["Vanilla",0,139.99],["Chocolate",0,139.99],["Lotus",0,139.99],["Hazelnut",0,144.99],["Nutella",0,144.99],["Pistachio",0,159.99]]},
+{ id:"frappuccino", g:"drinks", en:"Frappuccino", ar:"فرابتشينو", items:[
+  ["Caramel",0,149.99],["Vanilla",0,149.99],["Chocolate",0,149.99],["Hazelnut",0,154.99],["Strong",0,154.99],["Light",0,154.99]]},
+{ id:"yoghurt", g:"drinks", en:"Yoghurt", ar:"زبادي", items:[
+  ["Honey Yoghurt",0,139.99],["Fruit Yoghurt",0,139.99],["Mango Yoghurt",0,139.99],["Strawberry Yoghurt",0,139.99],
+  ["Blueberry Yoghurt",0,139.99],["Passion Yoghurt",0,139.99],["Peach Yoghurt",0,139.99],["Kiwi Yoghurt",0,139.99]]},
+{ id:"soft", g:"drinks", en:"Soft Drinks", ar:"مشروبات غازية", items:[
+  ["Small Mineral Water",0,34.99],["Cola - 7 Up - Mirinda",0,69.99],["Soda",0,74.99],["Tonic",0,74.99],
+  ["Birell",0,84.99],["Fayrouz",0,84.99],["Schweppes",0,79.99],["Red Bull",0,109.99]]},
+{ id:"iced", g:"drinks", en:"Iced Drinks", ar:"مشروبات باردة", items:[
+  ["Iced Tea",0,104.99,"Peach - mint - pomegranate\nMango - blueberry - passion"],
+  ["Iced Latte",0,144.99],["Iced Coffee",0,139.99],["Iced Cappuccino",0,154.99],["Iced Spanish",0,159.99],
+  ["Iced Mocha",0,149.99],["Iced Mocha White",0,149.99]]}
+];
+ 
+const ORN = '<svg class="orn" viewBox="0 0 70 14" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M2 7h24M44 7h24"/><path d="M35 1l4 6-4 6-4-6z" fill="currentColor"/><circle cx="26" cy="7" r="1.4" fill="currentColor"/><circle cx="44" cy="7" r="1.4" fill="currentColor"/></svg>';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = n => String(n);
+ 
+function priceHtml(p, labels) {
+  if (Array.isArray(p)) {
+    return '<span class="two">' + p.map((v,i) => `<span>${fmt(v)}<em>${esc(labels[i])}</em></span>`).join("") + '</span><small>LE</small>';
+  }
+  return `${fmt(p)}<small>LE</small>`;
+}
+ 
+const menu = document.getElementById("menu");
+let curGroup = null;
+S.forEach(s => {
+  if (s.g !== curGroup) {
+    curGroup = s.g;
+    const h = document.createElement("div");
+    h.className = "group-title"; h.id = "g-" + s.g; h.dataset.group = s.g; h.textContent = G[s.g];
+    menu.appendChild(h);
+  }
+  const el = document.createElement("section");
+  el.id = s.id; el.dataset.group = s.g;
+  el.innerHTML = `
+    <div class="sec-head">${ORN}<h2>${esc(s.en)}</h2><div class="ar-title" lang="ar" dir="rtl">${esc(s.ar)}</div>${s.note ? `<div class="note">${esc(s.note)}</div>` : ""}</div>
+    <ul class="items">${s.items.map(it => {
+      const [en, ar, price, de, da] = it;
+      const hasAr = !!(ar || da);
+      const hay = [en, ar || "", de || "", da || ""].join(" ").toLowerCase();
+      return `<li class="item ${hasAr ? "" : "noar"}" data-hay="${esc(hay)}">
+        <div class="en"><div class="en-name">${esc(en)}</div>${de ? `<div class="en-desc">${esc(de)}</div>` : ""}</div>
+        <div class="price">${priceHtml(price, s.labels)}</div>
+        ${hasAr ? `<div class="ar-block" lang="ar" dir="rtl">${ar ? `<div class="ar-name">${esc(ar)}</div>` : ""}${da ? `<div class="ar-desc">${esc(da)}</div>` : ""}</div>` : ""}
+      </li>`;
+    }).join("")}</ul>`;
+  menu.appendChild(el);
+});
+ 
+// Navigation
+const groupsEl = document.getElementById("groups");
+const chipsEl = document.getElementById("chips");
+Object.keys(G).forEach(k => {
+  const b = document.createElement("button");
+  b.className = "tab"; b.textContent = G[k]; b.dataset.group = k; b.setAttribute("role","tab");
+  b.addEventListener("click", () => {
+    const first = S.find(s => s.g === k);
+    document.getElementById(first.id).scrollIntoView();
+  });
+  groupsEl.appendChild(b);
+});
+S.forEach(s => {
+  const a = document.createElement("button");
+  a.className = "chip"; a.textContent = s.en.replace("Main Course: ", ""); a.dataset.id = s.id; a.dataset.group = s.g;
+  a.addEventListener("click", () => document.getElementById(s.id).scrollIntoView());
+  chipsEl.appendChild(a);
+});
+ 
+function setActive(id) {
+  const s = S.find(x => x.id === id); if (!s) return;
+  groupsEl.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-current", t.dataset.group === s.g));
+  let activeChip = null;
+  chipsEl.querySelectorAll(".chip").forEach(c => {
+    c.hidden = c.dataset.group !== s.g;
+    const on = c.dataset.id === id;
+    c.setAttribute("aria-current", on);
+    if (on) activeChip = c;
+  });
+  if (activeChip) {
+    const left = activeChip.offsetLeft - chipsEl.clientWidth / 2 + activeChip.clientWidth / 2;
+    chipsEl.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+  }
+}
+setActive(S[0].id);
+ 
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+}, { rootMargin: "-170px 0px -65% 0px" });
+document.querySelectorAll("main section").forEach(sec => io.observe(sec));
+ 
+// Search
+const q = document.getElementById("q");
+const empty = document.getElementById("empty");
+q.addEventListener("input", () => {
+  const term = q.value.trim().toLowerCase();
+  let total = 0;
+  document.querySelectorAll("main section").forEach(sec => {
+    let shown = 0;
+    sec.querySelectorAll(".item").forEach(li => {
+      const ok = !term || li.dataset.hay.includes(term);
+      li.hidden = !ok; if (ok) shown++;
+    });
+    sec.hidden = shown === 0; total += shown;
+  });
+  document.querySelectorAll(".group-title").forEach(t => {
+    const any = [...document.querySelectorAll(`main section[data-group="${t.dataset.group}"]`)].some(s => !s.hidden);
+    t.hidden = !any;
+  });
+  empty.style.display = total === 0 ? "block" : "none";
+});
+ 
+// Back to top
+const topBtn = document.getElementById("top");
+addEventListener("scroll", () => topBtn.classList.toggle("show", scrollY > 900), { passive: true });
+topBtn.addEventListener("click", () => scrollTo({ top: 0 }));
+</script>
+</body>
+</html>
+ 
